@@ -8,6 +8,8 @@ public class FP02unctional {
 		List<Integer> numbers=List.of(12,4,5,8,3,6,12);
 		System.out.println(numbers.stream().reduce(Integer.MIN_VALUE, (x,y)-> x>y ? x:y));
 		System.out.println(numbers.stream().reduce(Integer.MAX_VALUE, (x,y)-> x>y ? x:y));
+	System.out.println(numbers.stream().distinct().sorted());;
+
 		//   0   12
 		//   12   4,
 		//   16    5
@@ -21,6 +23,8 @@ public class FP02unctional {
 	  System.out.println(sum);
 	 System.out.println( sqaureandaddsquares(numbers));
 	System.out.println(sumofodd(numbers));
+	usingdistinct(numbers);
+	usingsort(numbers);
 	}
 
 	/*
@@ -38,4 +42,11 @@ public class FP02unctional {
 	  private static int sumofodd(List<Integer> numbers) { return
 			  numbers.stream().filter(x -> x%2 == 0).reduce(0, (x,y) -> x+y);
 }
+	 
+	  private static void usingdistinct(List<Integer> numbers) { 
+		 numbers.stream().distinct().forEach(System.out::println);
+}
+	  private static void usingsort(List<Integer> numbers) { 
+			 numbers.stream().sorted().forEach(System.out::println);
+	}
 	  }

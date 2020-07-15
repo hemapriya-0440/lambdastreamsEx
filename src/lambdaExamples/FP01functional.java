@@ -1,5 +1,6 @@
 package lambdaExamples;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class FP01functional {
@@ -14,7 +15,10 @@ public class FP01functional {
 			//printallcourseswithatleat4letter(list);
 			//printsquaresalleven(numbers);
 			//printalloddcubes(numbers);
-			printnoofcharactersincourses(list);
+			//printnoofcharactersincourses(list);
+		//	sortdistinc(list);
+		//sortednatural(list);
+			sortbylength(list);
 			}
 
 		/*(2)
@@ -67,5 +71,17 @@ public class FP01functional {
 			 * numbers.stream().filter(FP01functional::isEven) .forEach(System.out::println)
 			 */;
 			 numbers.stream().filter(number -> number%2!=0).map(number -> number*number*number).forEach(System.out::println);
+		}
+		private static void sortdistinc(List<String> coursess) {
+			coursess.stream()
+			.distinct().sorted().forEach(System.out::println);;
+		}
+		private static void sortednatural(List<String> coursess) {
+			coursess.stream()
+			.sorted(Comparator.naturalOrder()).forEach(System.out::println);;
+		}
+		private static void sortbylength(List<String> coursess) {
+			coursess.stream()
+			.sorted(Comparator.comparing(str -> str.length())).forEach(System.out::println);;
 		}
 }
